@@ -2,20 +2,17 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { environment } from 'src/environments/environment'
-import { Post } from '../interfaces/post'
+
 @Injectable({
     providedIn: 'root',
 })
-export class PostService {
+export class DallEService {
     apiUrl = environment.apiUrl
 
     constructor(private http: HttpClient) {}
 
-    getPosts(): Observable<any> {
-        return this.http.get(`${this.apiUrl}/v1/post`)
+    createImage(data: any): Observable<any> {
+        return this.http.post(`${this.apiUrl}/v1/dalle`, data)
     }
 
-    createPost(data: any): Observable<any> {
-        return this.http.post(`${this.apiUrl}/v1/post`, data)
-    }
 }
