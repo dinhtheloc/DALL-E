@@ -8,12 +8,10 @@ import { LayoutsModule } from './layouts/layouts/layouts.module'
 import { HomeComponent } from './pages/home/home.component'
 import { LoginComponent } from './pages/login/login.component'
 import { RegisterComponent } from './pages/register/register.component'
-import { CrudService } from './services/crud.service'
-import { IndexComponent } from './pages/index/index.component'
+
 import { LoaderComponent } from './components/loader/loader.component'
-import { LoadingInterceptor } from './interceptors/loading.interceptor'
 import { AuthInterceptor } from './interceptors/auth.interceptor'
-import { TestService } from './services/test.service'
+import { LoadingInterceptor } from './interceptors/loading.interceptor'
 
 @NgModule({
     declarations: [AppComponent, LoaderComponent],
@@ -29,8 +27,6 @@ import { TestService } from './services/test.service'
         RegisterComponent,
     ],
     providers: [
-        CrudService,
-        // TestService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: LoadingInterceptor,

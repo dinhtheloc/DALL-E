@@ -27,25 +27,20 @@ const routes: Routes = [
                 (mod) => mod.HomeComponent
             ),
     },
-    {
-        path: 'login',
-        loadComponent: () =>
-            import('./pages/login/login.component').then(
-                (mod) => mod.LoginComponent
-            ),
-    },
-    {
-        path: 'register',
-        loadComponent: () =>
-            import('./pages/register/register.component').then(
-                (mod) => mod.RegisterComponent
-            ),
-    },
-    {
-        path: 'post',
-        loadChildren: () =>
-            import('./pages/index/index.module').then((m) => m.IndexModule),
-    },
+    // {
+    //     path: 'login',
+    //     loadComponent: () =>
+    //         import('./pages/login/login.component').then(
+    //             (mod) => mod.LoginComponent
+    //         ),
+    // },
+    // {
+    //     path: 'register',
+    //     loadComponent: () =>
+    //         import('./pages/register/register.component').then(
+    //             (mod) => mod.RegisterComponent
+    //         ),
+    // },
     {
         path: '',
         redirectTo: 'home',
