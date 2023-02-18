@@ -1,3 +1,3 @@
 export const environment = {
-    apiUrl: '/.netlify/functions',
+    apiUrl: 'http://localhost:8080/api',
 }

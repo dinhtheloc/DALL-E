@@ -11,7 +11,7 @@ export class PostService {
     constructor(private http: HttpClient) {}
 
     getPosts(): Observable<any> {
-        return this.http.get(`${this.apiUrl}/post-get-all`)
+        return this.http.get(`${this.apiUrl}/v1/post`)
     }
 
     createPost(data: any): Observable<any> {
