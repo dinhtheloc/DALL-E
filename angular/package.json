@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "npm-run-all --parallel start:app start:server",
+    "start:app": "ng serve",
+    "start:server": "netlify-lambda serve functions",
+    "build": "npm-run-all --parallel build:**",
+    "build:app": "ng build",
+    "build:functions": "netlify-lambda build functions",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -30,14 +34,27 @@
     "@types/file-saver": "^2.0.5",
     "@types/jasmine": "~4.3.0",
     "autoprefixer": "^10.4.13",
+    "cloudinary": "^1.34.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "mongoose": "^6.9.2",
+    "netlify-lambda": "^2.0.16",
+    "npm-run-all": "^4.1.5",
+    "openai": "^3.1.0",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.6",
     "typescript": "~4.9.4"
+  },
+  "proxy": {
+    "/.netlify/functions": {
+      "target": "http://localhost:9000",
+      "pathRewrite": {
+        "^/\\.netlify/functions": ""
+      }
+    }
   }
 }
